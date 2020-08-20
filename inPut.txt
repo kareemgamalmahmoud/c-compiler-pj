@@ -1,0 +1,35 @@
+<A> ::=ab |ac |ad |am
+
+<A> ::=ab |ac |ad |am |(kk)
+
+<A> ::=ab |ac |(kk) |am |ad
+
+<Factor> ::=Identifier |Identifier[<ExprList>] |Identifier(<ExprList>)
+
+<s> ::=If e Then s |If e then s Else s |a
+
+<program> ::=<main class> <class declarations>
+
+<main class> ::=class <identifier> { public static void main ( ) { <statements> }   }
+
+<class declaration> ::=class<identifier>{<declarations>} |class<identifier>extends<identifier>{<declaration>}
+
+<method declaration> ::=public <type> <identifier> ( ) { <statements> } |public <type> <identifier> ( <formals>  ) { <statements> }
+
+<variable declaration> ::=<type> <identifier> ;
+
+<simple type> ::=int | boolean | void | < type identifier>
+
+<array type> ::=<simple type> [ ]
+
+<type identifier> ::=<identifier>
+
+<statement> ::=if  ( <expr> ) <statement>  |if  ( <expr> ) <statement> else <statement>  |assert ( expr )  |< local variable declaration>  |{ <statements> }  |while  ( <expr> ) <statement>  |System.out.println ( <expr> ) ;  |< lvalue> = <expr> ;  |return <expr> ;  |< method invocation> ;
+
+<local variable declaration> ::=<variable declaration>
+
+<method invocation> ::=<expr> . <identifier> ( < exprs> )
+
+<lvalue> ::=<expr>
+
+<expr> ::=<expr> <binary operator> <expr>  |<expr> [ <expr> ]  |<expr> . length  |new <simple type> [ <expr> ]  |new <type identifier> ( )  |! <expr>  | ( <expr> )  |< identifier>  | <integer literal>  | this  | true  | false  | < method invocation>

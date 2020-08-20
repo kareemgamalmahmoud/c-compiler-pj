@@ -1,0 +1,44 @@
+ *** <A> ::= a <x'1>
+   <x'1> ::= b  | c  | d  | m
+
+ *** <A> ::= a <x'2> | (kk)
+   <x'2> ::= b  | c  | d  | m 
+
+ *** <A> ::= a <x'3> | (kk) 
+   <x'3> ::= b  | c  | m  | d
+
+ *** <Factor> ::= Identifier <x'4>
+   <x'4> ::= E  | [<ExprList>]  | (<ExprList>)
+
+ *** <s> ::= If e  <x'5> | a
+   <x'5> ::= Then s  | then s Else s 
+
+<program> ::=<main class> <class declarations>
+
+<main class> ::=class <identifier> { public static void main ( ) { <statements> }   }
+
+ *** <class declaration> ::= class<identifier> <x'6>
+   <x'6> ::= {<declarations>}  | extends<identifier>{<declaration>}
+
+ *** <method declaration> ::= public <type> <identifier> (  <x'7>
+   <x'7> ::= ) { <statements> }  | <formals>  ) { <statements> }
+
+<variable declaration> ::=<type> <identifier> ;
+
+<simple type> ::=int | boolean | void | < type identifier>
+
+<array type> ::=<simple type> [ ]
+
+<type identifier> ::=<identifier>
+
+ *** <statement> ::= if  ( <expr> ) <statement>  <x'8> | assert ( expr )   | < local variable declaration>   | { <statements> }   | while  ( <expr> ) <statement>   | System.out.println ( <expr> ) ;   | < lvalue> = <expr> ;   | return <expr> ;   | < method invocation> ;
+   <x'8> ::= E  | else <statement>  
+
+<local variable declaration> ::=<variable declaration>
+
+<method invocation> ::=<expr> . <identifier> ( < exprs> )
+
+<lvalue> ::=<expr>
+
+ *** <expr> ::= <expr>  <x'9> | new <simple type> [ <expr> ]   | new <type identifier> ( )   | ! <expr>   |  ( <expr> )   | < identifier>   |  <integer literal>   |  this   |  true   |  false   |  < method invocation>
+   <x'9> ::= <binary operator> <expr>   | [ <expr> ]   | . length  
